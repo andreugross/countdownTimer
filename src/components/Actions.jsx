@@ -1,15 +1,35 @@
 import React from "react";
 
-function Actions() {
+function Actions({
+  toggleForm,
+  onToggle,
+  timeInput,
+  handleChange,
+  countDownStarted,
+  startTimer,
+  stopTimer,
+}) {
   return (
     <div className="ac-container">
       <div className="btn-container">
-        <button>Inciar</button>
-        <button>Tempo</button>
+        {!countDownStarted ? (
+          <button onClick={() => startTimer()}>Inciar</button>
+        ) : (
+          <button onClick={() => stopTimer()}>Parar</button>
+        )}
+        <button onClick={onToggle}>Tempo</button>
       </div>
-      <form>
-        <input type="text" placeholder="Quanto tempo temos?" />
-      </form>
+      {toggleForm ? (
+        <div className="input-form">
+          <input
+            type="number"
+            placeholder="Quanto tempo temos?"
+            onChange={handleChange}
+            defaultValue={timeInput}
+          />
+        </div>
+      ) : null}
+
       <div className="used-container">
         <div className="used-timers">
           <h2>Usados recentemente</h2>
