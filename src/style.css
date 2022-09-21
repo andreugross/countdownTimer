@@ -3,6 +3,7 @@
 :root {
     --defaut-color: #D3CCE3;
     --grey: #a7a29a;
+    --black: #1f1f1f;
     --silver: #ccc;
 }
 
@@ -30,4 +31,36 @@ body {
     padding: 1.5rem;
     border-radius: 1rem;
     cursor: pointer;
+}
+
+@media screen and (min-width: 768px){
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .container {
+        padding: unset;
+        max-width: 750px;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 2rem;
+    }
+}
+
+.onboarding {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.onboarding h1 {
+    font-family: "Rubik", sans-serif;
+    text-transform: uppercase;
+    color: var(--black);
+    font-size: 3.5rem;
+    user-select: none;
+    text-shadow: 2px 2px #000;
 }

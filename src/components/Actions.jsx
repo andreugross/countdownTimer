@@ -2,7 +2,7 @@ import React from 'react'
 
 function Actions() {
   return (
-    <div>Actions</div>
+    <div className='ac-container'>Actions</div>
   )
 }
 
