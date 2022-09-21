@@ -1,66 +1,178 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-    --defaut-color: #D3CCE3;
-    --grey: #a7a29a;
-    --black: #1f1f1f;
-    --silver: #ccc;
+  --defaut-color: #D3CCE3;
+  --grey: #a7a29a;
+  --black: #1f1f1f;
+  --silver: #ccc;
 }
 
 * {
-    margin: unset;
-    padding: unset;
+  margin: unset;
+  padding: unset;
 }
 
 body {
-    background-color: var(--defaut-color);
+  background-color: var(--defaut-color);
 }
 
 .container {
-    display: grid;
-    grid-auto-rows: 539px;
-    padding: 1rem, 0rem;
+  display: grid;
+  grid-auto-rows: 539px;
+  padding: 1rem, 0rem;
 }
 
 .onboarding,
 .timer {
-    margin: 0.5rem auto;
-    border: 2px solid var(--grey);
-    width: 277px;
-    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    border-radius: 1rem;
-    cursor: pointer;
+  margin: 0.5rem auto;
+  border: 2px solid var(--grey);
+  width: 277px;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
 }
 
-@media screen and (min-width: 768px){
-    body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
-    .container {
-        padding: unset;
-        max-width: 750px;
-        grid-template-columns: repeat(2, 1fr);
-        grid-gap: 2rem;
-    }
-}
-
-.onboarding {
+@media screen and (min-width: 768px) {
+  body {
+    height: 100vh;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+  }
+
+  .container {
+    padding: unset;
+    max-width: 750px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+}
+
+/* onboarding container */
+.onboarding {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .onboarding h1 {
-    font-family: "Rubik", sans-serif;
-    text-transform: uppercase;
-    color: var(--black);
-    font-size: 3.5rem;
-    user-select: none;
-    text-shadow: 2px 2px #000;
+  font-family: "Rubik", sans-serif;
+  text-transform: uppercase;
+  color: var(--black);
+  font-size: 3.5rem;
+  user-select: none;
+  text-shadow: 2px 2px #000;
+}
+
+/* timer container */
+.timer {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 50% 50%;
+}
+
+/* Actions */
+.ac-container button {
+  background-color: unset;
+  border: unset;
+  box-shadow: unset;
+  cursor: pointer;
+  font-family: "Rubik", sans-serif;
+}
+
+.ac-container .btn-container {
+  margin-bottom: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1.6rem;
+}
+
+.btn-container button {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  color: var(--black);
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--grey);
+  font-family: "Rubik", sans-serif;
+  transition: all 0.5ms ease-in-out;
+}
+
+.btn-container button:hover {
+  border-color: var(--grey);
+  box-shadow: unset;
+}
+
+.ac-container form {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ac-container input {
+  width: 100%;
+  border: unset;
+  padding: 0.3rem;
+  display: none;
+}
+
+.used-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 2rem;
+  padding-top: 0.5rem;
+}
+
+.used-timers h2,
+.reset button {
+  font-size: 1rem;
+  font-weight: 400;
+  white-space: nowrap;
+  color: var(--black);
+  font-family: "Rubik", sans-serif;
+}
+
+.used-container ul {
+  height: 50%;
+  overflow-y: scroll;
+  margin-top: 1rem;
+}
+
+.used-container ul::-webkit-scrollbar {
+  display: none;
+}
+
+.reset {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.reset button {
+  color: var(--black);
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--grey);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.5ms ease-in-out;
+  font-weight: 700;
+}
+
+.reset button:hover {
+  border-color: var(--grey);
+  box-shadow: unset;
+}
+
+.used-container ul li {
+  margin-bottom: 0.3rem;
+}
+
+.used-container ul li button {
+  color: var(--black);
+  font-family: "Rubik", sans-serif;
 }
