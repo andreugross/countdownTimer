@@ -12,24 +12,26 @@ function Timer() {
   /* time in milliseconds */
   const [timeInMilliseconds, setTimeInMilliseconds] = useState(0);
   /* used timers */
-  const [usedTimes, setUseTimes] = useState([]); 
+  const [usedTimes, setUsedTimes] = useState([]);
   /* start timer */
   const startTimer = () => {
     setCountDownStarted(true);
 
     // close form
-    if (toggleForm) { setToggleForm(false); }
+    if (toggleForm) {
+      setToggleForm(false);
+    }
 
     // set new timer minutes (milliseconds)
     setTimeInMilliseconds(timeInput * 60 * 1000);
     // add the time to used times
-    setUseTimes(times => times.concat(timeInput));
-  }
+    setUsedTimes((times) => times.concat(timeInput));
+  };
   /* stop timer */
   const stopTimer = () => {
     setCountDownStarted(false);
     setTimeInMilliseconds(0);
-  }
+  };
 
   /* toggle form */
   const onToggle = () => {
@@ -43,10 +45,18 @@ function Timer() {
   };
 
   // get time ahead in milliseconds
+  const countDownTime = new Date().getTime() + timeInMilliseconds;
 
   return (
     <div className="timer">
-      <Progress />
+      <Progress
+        {...{
+          timeInMilliseconds,
+          stopTimer,
+          countDownStarted,
+          countDownTime,
+        }}
+      />
       <Actions
         {...{
           toggleForm,
@@ -56,10 +66,12 @@ function Timer() {
           countDownStarted,
           startTimer,
           stopTimer,
+          usedTimes,
+          setUsedTimes,
         }}
       />
     </div>
   );
 }
 
-export default Timer;
+export default memo(Timer);

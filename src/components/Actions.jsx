@@ -8,6 +8,8 @@ function Actions({
   countDownStarted,
   startTimer,
   stopTimer,
+  usedTimes,
+  setUsedTimes,
 }) {
   return (
     <div className="ac-container">
@@ -49,7 +51,7 @@ function Actions({
           </ul>
         </div>
         <div className="reset">
-          <button>Limpar</button>
+          <button onClick={() => setUsedTimes() }>Limpar</button>
         </div>
       </div>
     </div>
